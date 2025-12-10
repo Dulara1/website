@@ -1,184 +1,189 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Jane Doe — Personal Site</title>
-  <meta name="description" content="Personal website for Jane Doe — about, portfolio, contact." />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aparna Navindi – Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Simple, modern responsive CSS — change colors below */
-    :root{
-      --bg:#0f1724; /* dark background */
-      --card:#0b1220;
-      --muted:#94a3b8;
-      --accent:#7c3aed; /* purple accent */
-      --glass: rgba(255,255,255,0.04);
-      --max-width:1100px;
-      --radius:14px;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f7f7f7;
+      color: #222;
+      overflow-x: hidden;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg),#031025);color:#e6eef8}
-    .container{max-width:var(--max-width);margin:28px auto;padding:24px}
-    header{display:flex;gap:18px;align-items:center}
-    .avatar{width:110px;height:110px;border-radius:18px;overflow:hidden;flex-shrink:0;background:linear-gradient(135deg,var(--accent),#06b6d4);display:grid;place-items:center;font-weight:700}
-    .avatar img{width:100%;height:100%;object-fit:cover;display:block}
-    h1{margin:0;font-size:28px}
-    .meta{color:var(--muted);margin-top:6px}
-    nav{margin-left:auto}
-    nav a{color:var(--muted);text-decoration:none;margin-left:12px}
-    main{display:grid;grid-template-columns:1fr 360px;gap:26px;margin-top:26px}
-    .card{background:var(--card);padding:18px;border-radius:var(--radius);box-shadow:0 6px 20px rgba(2,6,23,0.6)}
-    .about p{color:var(--muted);line-height:1.6}
-    .skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-    .skill{background:var(--glass);padding:8px 10px;border-radius:999px;font-size:13px;color:var(--muted)}
-    .portfolio-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-    .project{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:12px;border-radius:12px}
-    .project h3{margin:0 0 6px 0;font-size:16px}
-    .project p{margin:0;color:var(--muted);font-size:13px}
-    .contact-form label{display:block;font-size:13px;margin-top:8px;color:var(--muted)}
-    .contact-form input,.contact-form textarea{width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;margin-top:6px}
-    .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#06b6d4);color:white;text-decoration:none;font-weight:600}
-    aside .card + .card{margin-top:16px}
-    footer{margin-top:28px;color:var(--muted);font-size:13px;text-align:center}
-    @media (max-width:900px){main{grid-template-columns:1fr}nav{display:none}.avatar{width:92px;height:92px}}
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 40px 10%;
+      background: linear-gradient(135deg, #d8d6c5, #eceade);
+      animation: fadeDown 1.2s ease;
+    }
+
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-40px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .profile-img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid white;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      font-size: 42px;
+      margin: 0;
+    }
+
+    .role {
+      font-size: 20px;
+      letter-spacing: 2px;
+      color: #333;
+      text-transform: uppercase;
+      margin-top: 5px;
+      animation: glow 3s infinite ease-in-out;
+    }
+
+    @keyframes glow {
+      0%,100% { opacity: 0.6; }
+      50% { opacity: 1; }
+    }
+
+    section {
+      padding: 60px 10%;
+      animation: fadeIn 1.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    .sec-title {
+      font-size: 32px;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .sec-title::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 60px;
+      height: 4px;
+      background: #2c2c2c;
+      border-radius: 2px;
+      animation: slideRight 1s ease;
+    }
+
+    @keyframes slideRight {
+      from { width: 0; }
+      to   { width: 60px; }
+    }
+
+    .skills-grid, .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    footer {
+      padding: 40px 10%;
+      text-align: center;
+      background: #222;
+      color: #fff;
+      margin-top: 40px;
+    }
+
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="avatar" aria-hidden="true">
-        <!-- Replace with a real image: <img src="assets/jane.jpg" alt="Jane Doe"> -->
-        <span style="font-size:28px">JD</span>
-      </div>
-      <div>
-        <h1 id="site-name">Jane Doe</h1>
-        <div class="meta">Designer • Front-end dev • Storyteller — Based in Colombo</div>
-      </div>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#work">Work</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
 
-    <main>
-      <section>
-        <div class="card about" id="about">
-          <h2>About</h2>
-          <p>Hello — I'm <strong>Jane</strong>. I design beautiful, accessible websites and craft clean front-end code. I enjoy turning complex problems into simple, delightful experiences. I love illustration, photography and coffee. This site is a small portfolio + contact page you can customize.</p>
-
-          <div class="skills" aria-label="skills">
-            <span class="skill">HTML</span>
-            <span class="skill">CSS</span>
-            <span class="skill">JavaScript</span>
-            <span class="skill">React</span>
-            <span class="skill">Figma</span>
-          </div>
-
-          <h3 style="margin-top:18px">Quick bio</h3>
-          <p class="meta">Open to freelance & remote roles. Available from Jan 2026. Email: <a href="mailto:jane@example.com" style="color:var(--accent)">jane@example.com</a></p>
-        </div>
-
-        <div class="card" id="work" style="margin-top:16px">
-          <h2>Selected work</h2>
-          <div class="portfolio-grid">
-            <article class="project">
-              <h3>Project Alpha</h3>
-              <p>A responsive e-commerce concept with custom UI components.</p>
-            </article>
-            <article class="project">
-              <h3>Portfolio Site</h3>
-              <p>Personal portfolio highlighting illustration and case studies.</p>
-            </article>
-            <article class="project">
-              <h3>Mobile Dashboard</h3>
-              <p>Cross-platform dashboard for small business analytics.</p>
-            </article>
-            <article class="project">
-              <h3>Branding Kit</h3>
-              <p>Identity and guidelines for a local coffee shop.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <aside>
-        <div class="card">
-          <h3>Contact</h3>
-          <p class="meta">Want to work together or just say hi?</p>
-          <p style="margin-top:12px"><a class="btn" href="mailto:jane@example.com">Email Jane</a></p>
-        </div>
-
-        <div class="card">
-          <h3>Resume</h3>
-          <p class="meta">Download a one-page resume (placeholder).</p>
-          <p style="margin-top:12px"><a class="btn" href="#" onclick="downloadResume();return false;">Download PDF</a></p>
-        </div>
-
-        <div class="card" style="text-align:center">
-          <h3>Social</h3>
-          <p class="meta">Find Jane on:</p>
-          <p style="margin-top:10px"><a href="#" style="color:var(--muted);text-decoration:none">Twitter</a> · <a href="#" style="color:var(--muted);text-decoration:none">LinkedIn</a> · <a href="#" style="color:var(--muted);text-decoration:none">Dribbble</a></p>
-        </div>
-      </aside>
-
-    </main>
-
-    <section id="contact" style="margin-top:18px">
-      <div class="card contact-form">
-        <h2>Send a message</h2>
-        <form onsubmit="sendMessage(event)">
-          <label for="name">Your name</label>
-          <input id="name" name="name" required>
-
-          <label for="email">Your email</label>
-          <input id="email" name="email" type="email" required>
-
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="4" required></textarea>
-
-          <div style="margin-top:10px"><button class="btn" type="submit">Send</button></div>
-        </form>
-        <p id="status" style="margin-top:10px;color:var(--muted)"></p>
-      </div>
-    </section>
-
-    <footer>
-      <small>Made with ♥ — Replace name, images and links to personalize.</small>
-    </footer>
+<header>
+  <div>
+    <h1>Aparna Navindi</h1>
+    <div class="role">Software Engineer</div>
+    <p>A motivated 3rd-year BSc IT student seeking an internship to apply academic knowledge in a real-world environment.</p>
   </div>
+  <img src="PROFILE_PHOTO_URL_HERE" class="profile-img" />
+</header>
 
-  <script>
-    // Simple client-side helpers — replace with your own backend when ready
-    function sendMessage(e){
-      e.preventDefault();
-      const name=document.getElementById('name').value;
-      const email=document.getElementById('email').value;
-      const message=document.getElementById('message').value;
-      const status = document.getElementById('status');
-      // For this static template we'll use mailto as fallback
-      const mailto = `mailto:jane@example.com?subject=${encodeURIComponent('Message from '+name)}&body=${encodeURIComponent(message+'\n\nReply to: '+email)}`;
-      status.textContent='Opening your email app...';
-      window.location.href = mailto;
-    }
-    function downloadResume(){
-      // Placeholder — replace 'resume.pdf' with a real file path
-      const link = document.createElement('a');
-      link.href = 'resume.pdf';
-      link.download = 'Jane-Doe-Resume.pdf';
-      document.body.appendChild(link);
-      link.click();
-      link.remove();
-    }
+<section>
+  <div class="sec-title">Skills</div>
+  <div class="skills-grid">
+    <div class="card">
+      <h3>Programming Languages</h3>
+      Java, Python, JavaScript, SQL, HTML/CSS, PHP, Android
+    </div>
+    <div class="card">
+      <h3>Frameworks & Tools</h3>
+      React, Node.js, Spring Boot, VS Code, Eclipse, Git, IntelliJ IDEA, Android Studio, NetBeans
+    </div>
+    <div class="card">
+      <h3>Databases</h3>
+      MySQL, MongoDB
+    </div>
+    <div class="card">
+      <h3>Others</h3>
+      Agile Methodologies, UI/UX Design Principles
+    </div>
+  </div>
+</section>
 
-    // Small enhancement: keyboard shortcut to toggle theme accent
-    document.addEventListener('keydown', (e)=>{
-      if(e.key==='t' && (e.ctrlKey || e.metaKey)){
-        document.documentElement.style.setProperty('--accent', getComputedStyle(document.documentElement).getPropertyValue('--accent').trim()==='#7c3aed' ? '#06b6d4' : '#7c3aed');
-        e.preventDefault();
-      }
-    });
-  </script>
+<section>
+  <div class="sec-title">Academic Projects</div>
+  <div class="projects-grid">
+    <div class="card">
+      <h3>Boat Safari Management System (2024 – May)</h3>
+      <p>Booking, billing, admin dashboard for staff & inventory.<br>Technologies: HTML, CSS, JavaScript, PHP, MySQL</p>
+    </div>
+    <div class="card">
+      <h3>Hotel Management System (2025 – April)</h3>
+      <p>Full-stack e‑commerce for textile business.<br>Technologies: Java, MySQL</p>
+    </div>
+    <div class="card">
+      <h3>Textile & Saree Customization System (2024 – August)</h3>
+      <p>Measurements, admin dashboards, production & inventory.<br>Technologies: React.js, Node.js, MongoDB, REST APIs, CSS</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-title">Education</div>
+  <div class="card" style="max-width:600px;">
+    <h3>SLIIT (2023 – 2028)</h3>
+    BSc in Information Technology.<br>
+    Coursework: Software Engineering, DBMS, Web Development, OOP, Android Development & more.
+  </div>
+</section>
+
+<footer>
+  <p>Email: bma.navindi@gmail.com | Phone: +94 71 608 7066 | Badulla, Sri Lanka</p>
+  <p>GitHub: github.com/aprnavindi</p>
+</footer>
+
 </body>
 </html>
